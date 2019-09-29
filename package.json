@@ -1,0 +1,26 @@
+{
+  "name": "simple-node-database",
+  "version": "1.0.0",
+  "description": "Simple sync Sqlite example",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlada-j/SimpleNodeDatabase.git"
+  },
+  "keywords": [
+    "nodejs",
+    "sqlite3",
+    "javascript"
+  ],
+  "author": "https://github.com/vlada-j",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite-cipher": "^0.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
