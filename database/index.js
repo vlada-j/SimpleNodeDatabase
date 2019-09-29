@@ -13,6 +13,9 @@ function connect(DATABASE_CONFIG) {
 
 	tables.users = require('./tables/UsersTable');
 	tables.permissions = require('./tables/PermissionLevelTable');
+	tables.tags = require('./tables/TagsTable');
+	tables.items = require('./tables/ItemsTable');
+	tables.itemsTags = require('./tables/ItemsTagsTable');
 }
 
 function resetAllTables() {
