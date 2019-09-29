@@ -11,11 +11,11 @@ const database = require('./database/');
 
 database.connect(CONFIG.database);
 
-
-const permissions = require('./database/tables/PermissionLevelTable');
-const categories = require('./database/tables/CategoriesTable');
-const tags = require('./database/tables/TagsTable');
+const { permissions, categories, tags } = database.tables;
 
 const users = require('./database/Users');
 const items = require('./database/Items');
 const groups = require('./database/Groups');
+
+
+// Do some cool staff...

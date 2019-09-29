@@ -1,4 +1,4 @@
-const run = require('../../shared/sqliteRun');
+const run = require('./sqliteRun');
 
 module.exports = class Table {
 

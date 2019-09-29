@@ -1,4 +1,4 @@
-const Table = require('./Table');
+const Table = require('../../shared/Table');
 
 class TagsTable extends Table {
 	constructor() {
