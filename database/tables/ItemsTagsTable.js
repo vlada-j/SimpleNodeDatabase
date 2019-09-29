@@ -27,6 +27,12 @@ class ItemsTagsTable extends Table {
 	}
 
 
+	get(itemId, tagId) {
+		const sql = `SELECT * FROM ${this.name} WHERE item_id = ${itemId} AND tag_id = ${tagId};`;
+		return this.run(sql);
+	}
+
+
 	getByItem(itemId) {
 		const sql =
 			`SELECT ${this.name}.tag_id as id, tags.name, tags.type 
@@ -34,6 +40,12 @@ class ItemsTagsTable extends Table {
 			LEFT JOIN tags ON tags.id = ${this.name}.tag_id 
 			WHERE item_id = ${itemId} 
 			ORDER BY tags.type ASC`;
+		return this.run(sql);
+	}
+
+
+	remove(itemId, tagId) {
+		const sql = `DELETE FROM ${this.name} WHERE item_id = ${itemId} AND tag_id = ${tagId};`;
 		return this.run(sql);
 	}
 

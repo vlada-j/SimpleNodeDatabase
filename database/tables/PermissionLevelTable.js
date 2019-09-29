@@ -12,24 +12,20 @@ class PermissionLevelTable extends Table {
 	}
 
 
-	get(id) {
+	insert(data) {
+		const sql = `INSERT INTO ${this.name} 
+		(name) 
+		VALUES ('${data.name}');`;
+		return this.run(sql);
+	}
+
+
+	update(id, data) {
 		if (typeof id !== 'number') return undefined;
-		return this.run(`SELECT * FROM ${this.name} WHERE id = ${id}`)[0];
-	}
-
-
-	insert(name) {
-		return this.run(`INSERT INTO ${this.name} (name) VALUES( '${name}' );`);
-	}
-
-
-	update(id, name) {
-		return this.run(`UPDATE ${this.name} SET name = '${name}' WHERE id = ${id}`);
-	}
-
-
-	delete(id) {
-		return this.run(`DELETE FROM ${this.name} WHERE id = ${id}`);
+		const sql = `UPDATE ${this.name} 
+		SET name = '${data.name}' s
+		WHERE id = ${id};`;
+		return this.run(sql);
 	}
 }
 

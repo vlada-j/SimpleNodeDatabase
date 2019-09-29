@@ -13,25 +13,6 @@ class GroupsTable extends Table {
 	}
 
 
-	get(ids) {
-		if (ids.length === 0) return [];
-		const query = ids
-			.map(id => `id = ${id}`)
-			.join(' OR ');
-		const sql = `SELECT * FROM ${this.name} WHERE ${query};`;
-		return this.run(sql);
-	}
-
-
-	remove(ids) {
-		if (ids.length === 0) return [];
-		const query = ids
-			.map(id => `id = ${id}`)
-			.join(' OR ');
-		return this.run(`DELETE FROM ${this.name} WHERE ${query};`)
-	}
-
-
 	insert(data) {
 		const sql = `INSERT INTO ${this.name} 
 		(name, category) 

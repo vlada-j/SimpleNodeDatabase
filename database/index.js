@@ -11,12 +11,15 @@ module.exports = {
 function connect(DATABASE_CONFIG) {
 	sqlite.connect(DATABASE_CONFIG.path, DATABASE_CONFIG.password, DATABASE_CONFIG.algorithm);
 
-	tables.users = require('./tables/UsersTable');
 	tables.permissions = require('./tables/PermissionLevelTable');
+	tables.categories = require('./tables/CategoriesTable');
 	tables.tags = require('./tables/TagsTable');
+
+	tables.users = require('./tables/UsersTable');
 	tables.items = require('./tables/ItemsTable');
-	tables.itemsTags = require('./tables/ItemsTagsTable');
 	tables.groups = require('./tables/GroupsTable');
+
+	tables.itemsTags = require('./tables/ItemsTagsTable');
 	tables.groupsItems = require('./tables/GroupsItemsTable');
 }
 

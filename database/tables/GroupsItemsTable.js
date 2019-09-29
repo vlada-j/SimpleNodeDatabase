@@ -28,6 +28,12 @@ class GroupsItemsTable extends Table {
 	}
 
 
+	get(groupId, itemId) {
+		const sql = `SELECT * FROM ${this.name} WHERE group_id = ${groupId} AND item_id = ${itemId};`;
+		return this.run(sql);
+	}
+
+
 	getByGroup(groupId) {
 		const sql =
 			`SELECT ${this.name}.item_id as id, items.type
@@ -46,6 +52,12 @@ class GroupsItemsTable extends Table {
 			LEFT JOIN groups ON groups.id = ${this.name}.group_id 
 			WHERE item_id = ${itemId} 
 			ORDER BY order_nb ASC`;
+		return this.run(sql);
+	}
+
+
+	remove(groupId, itemId) {
+		const sql = `DELETE FROM ${this.name} WHERE group_id = ${groupId} AND item_id = ${itemId};`;
 		return this.run(sql);
 	}
 

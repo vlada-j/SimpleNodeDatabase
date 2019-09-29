@@ -13,14 +13,20 @@ class TagsTable extends Table {
 	}
 
 
-	getAll() {
-		return this.run(`SELECT * FROM ${this.name} ORDER BY type ASC`);
+	insert(data) {
+		const sql = `INSERT INTO ${this.name} 
+		(name, type) 
+		VALUES ('${data.name}', ${data.type});`;
+		return this.run(sql);
 	}
 
 
-	delete(id) {
+	update(id, data) {
 		if (typeof id !== 'number') return undefined;
-		return this.run(`DELETE FROM ${this.name} WHERE id = ${id}`);
+		const sql = `UPDATE ${this.name} 
+		SET name = '${data.name}', type = ${data.type} 
+		WHERE id = ${id};`;
+		return this.run(sql);
 	}
 }
 

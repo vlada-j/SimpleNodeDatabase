@@ -1,13 +1,12 @@
 const Table = require('./Table');
 
-class UsersTable extends Table {
+class CategoriesTable extends Table {
 	constructor() {
 		super();
-		this.name = 'users';
+		this.name = 'categories';
 		this.createSQL = `CREATE TABLE IF NOT EXISTS ${this.name}(
 			id INTEGER PRIMARY KEY AUTOINCREMENT,
-			name TEXT NOT NULL,
-			permission INTEGER NULLABLE
+			name TEXT NOT NULL
 		)`;
 		this.run(this.createSQL);
 	}
@@ -15,8 +14,8 @@ class UsersTable extends Table {
 
 	insert(data) {
 		const sql = `INSERT INTO ${this.name} 
-		(name, permission) 
-		VALUES ('${data.name}', ${data.permission});`;
+		(name) 
+		VALUES ('${data.name}');`;
 		return this.run(sql);
 	}
 
@@ -24,10 +23,10 @@ class UsersTable extends Table {
 	update(id, data) {
 		if (typeof id !== 'number') return undefined;
 		const sql = `UPDATE ${this.name} 
-		SET name = '${data.name}', permission = ${data.permission} 
+		SET name = '${data.name}' s
 		WHERE id = ${id};`;
 		return this.run(sql);
 	}
 }
 
-module.exports = new UsersTable();
+module.exports = new CategoriesTable();
