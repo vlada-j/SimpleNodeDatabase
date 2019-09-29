@@ -10,3 +10,5 @@ const CONFIG = {
 const database = require('./database/');
 
 database.connect(CONFIG.database);
+
+const users = require('./database/Users');
