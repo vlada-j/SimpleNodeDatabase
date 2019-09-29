@@ -12,7 +12,7 @@ function connect(DATABASE_CONFIG) {
 	sqlite.connect(DATABASE_CONFIG.path, DATABASE_CONFIG.password, DATABASE_CONFIG.algorithm);
 
 	tables.users = require('./tables/UsersTable');
-	tables.permissionLevel = require('./tables/PermissionLevelTable');
+	tables.permissions = require('./tables/PermissionLevelTable');
 }
 
 function resetAllTables() {

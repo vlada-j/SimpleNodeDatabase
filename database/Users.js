@@ -1,4 +1,5 @@
 const { tables, run } = require('./index');
+const { forceString, forceArray, forceInt } = require('../shared/util');
 
 // Groups
 module.exports = {
@@ -31,7 +32,6 @@ function validation(data) {
 function create(data) {
 	data = validation(data);
 	const id = tables.users.insert(data);
-	tables.groupsMedia.insert(id, data.list);
 	return get(id);
 }
 
@@ -49,8 +49,8 @@ function get(ids) {
 	const asList = ids instanceof Array,
 		result = tables.users.get(asList ? ids : [ids]);
 
-	result.forEach(group => {
-		users.permission = tables.categories.get(group.permission);
+	result.forEach(user => {
+		user.permission = tables.permissions.get(user.permission);
 	});
 
 	return asList ? result : result[0];
@@ -60,11 +60,6 @@ function get(ids) {
 
 function remove(ids) {
 	ids = ids instanceof Array ? ids : [ids];
-
-	ids.forEach(id => {
-		tables.groupsMedia.removeByMedia(id);
-	});
-
 	return tables.users.remove(ids);
 }
 
