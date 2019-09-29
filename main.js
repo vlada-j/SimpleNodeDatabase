@@ -12,3 +12,5 @@ const database = require('./database/');
 database.connect(CONFIG.database);
 
 const users = require('./database/Users');
+const items = require('./database/Items');
+const groups = require('./database/Groups');

@@ -16,6 +16,8 @@ function connect(DATABASE_CONFIG) {
 	tables.tags = require('./tables/TagsTable');
 	tables.items = require('./tables/ItemsTable');
 	tables.itemsTags = require('./tables/ItemsTagsTable');
+	tables.groups = require('./tables/GroupsTable');
+	tables.groupsItems = require('./tables/GroupsItemsTable');
 }
 
 function resetAllTables() {
