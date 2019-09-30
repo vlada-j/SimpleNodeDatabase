@@ -9,4 +9,7 @@ module.exports = {
 
 	forceArray: (arr, def) => arr instanceof Array ? arr : def,
 
+	isArray: (arr) => arr instanceof Array,
+
+	isObject: (obj) => (typeof obj === 'object' && !(obj instanceof Array) && obj !== null),
 };

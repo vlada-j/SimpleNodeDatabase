@@ -23,7 +23,7 @@ class PermissionLevelTable extends Table {
 	update(id, data) {
 		if (typeof id !== 'number') return undefined;
 		const sql = `UPDATE ${this.name} 
-		SET name = '${data.name}' s
+		SET name = '${data.name}' 
 		WHERE id = ${id};`;
 		return this.run(sql);
 	}

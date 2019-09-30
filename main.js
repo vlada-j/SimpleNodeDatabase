@@ -19,3 +19,9 @@ const groups = require('./database/Groups');
 
 
 // Do some cool staff...
+
+// Or test...
+const test = require('./tests');
+
+test.baseTableTest(permissions);
+test.usersTest(database.tables, users);

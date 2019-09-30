@@ -1,4 +1,5 @@
 const run = require('./sqliteRun');
+const { isArray } = require('./util');
 
 module.exports = class Table {
 
@@ -24,7 +25,9 @@ module.exports = class Table {
 
 
 	get(ids) {
-		if (ids.length === 0) return [];
+		if (typeof ids === 'number') { ids = [ids]; }
+		else if (!isArray(ids) || (isArray(ids) && ids.length === 0)) { return []; }
+
 		const query = ids
 			.map(id => `id = ${id}`)
 			.join(' OR ');
@@ -34,7 +37,9 @@ module.exports = class Table {
 
 
 	remove(ids) {
-		if (ids.length === 0) return [];
+		if (typeof ids === 'number') { ids = [ids]; }
+		else if (!isArray(ids) || (isArray(ids) && ids.length === 0)) { return []; }
+
 		const query = ids
 			.map(id => `id = ${id}`)
 			.join(' OR ');

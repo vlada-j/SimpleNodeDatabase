@@ -50,7 +50,7 @@ function get(ids) {
 		result = tables.users.get(asList ? ids : [ids]);
 
 	result.forEach(user => {
-		user.permission = tables.permissions.get(user.permission);
+		user.permission = tables.permissions.get(user.permission)[0];
 	});
 
 	return asList ? result : result[0];
